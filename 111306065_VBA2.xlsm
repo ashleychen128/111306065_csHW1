@@ -1,0 +1,154 @@
+Sub extra()
+
+
+For i = 2 To 31
+Sum = 0
+For j = 2 To 4
+Sum = Sum + Sheet1.Cells(i, j)
+Next j
+Sheet2.Cells(i, 3) = Sheet2.Cells(i, 2) * Sum / 150
+Sheet2.Cells(i, 5) = Round(Sheet2.Cells(i, 4) * (Sheet1.Cells(i, 2) + Sheet1.Cells(i, 3) + Sheet1.Cells(i, 4)) / 450, 0)
+Sheet2.Cells(i, 7) = Round(Sheet2.Cells(i, 6) * (Sheet1.Cells(i, 2) + Sheet1.Cells(i, 3) + Sheet1.Cells(i, 4)) / 450, 0)
+Sheet2.Cells(i, 8) = round(Sheet1.Cells(i, 2) + Sheet1.Cells(i, 3) + Sheet1.Cells(i, 4) + Sheet1.Cells(i, 5) + Sheet1.Cells(i, 6) + Sheet1.Cells(i, 7) + Sheet2.Cells(i, 3)– Sheet2.Cells(i, 5) - Sheet2.Cells(i, 7),0)
+Sheet2.Cells(i, 9) = Round(Sheet1.Cells(i, 2) + Sheet1.Cells(i, 3) + Sheet1.Cells(i, 4) + Sheet1.Cells(i, 5))
+Sheet2.Cells(i, 10) = bol(Sheet2.Cells(i, 9))
+Sheet2.Cells(i, 12) = bonh(Sheet2.Cells(i, 9))
+Sheet2.Cells(i, 11) = Round(Sheet2.Cells(i, 10) * 0.065 * 0.2, 0)
+Sheet2.Cells(i, 13) = Round(Sheet2.Cells(i, 12) * 0.0425 * 0.3 * (1 + Sheet1.Cells(i, 9)), 0)
+Sheet2.Cells(i, 14) = Round(Sheet2.Cells(i, 8) * Sheet1.Cells(i, 11), 0)
+Sheet2.Cells(i, 15) = round(Sheet2.Cells(i, 8) - Sheet2.Cells(i,11) - Sheet2.Cells(i, 13) - Sheet2.Cells(i, 14) – Sheet1.Cells(i, 8))
+Next i
+End Sub
+
+Function bol(bol_vol)
+Select Case bol_vol
+Case Is <= 15840
+bol = 15840
+Case 15841 To 16500
+bol = 16500
+Case 16501 To 17400
+bol = 17400
+Case 17401 To 18300
+bol = 18300
+Case 18301 To 19200
+bol = 19200
+Case 19201 To 20100
+bol = 20100
+Case 20101 To 21000
+bol = 21000
+Case 21001 To 21900
+bol = 21900
+Case 21901 To 22800
+bol = 22800
+Case 22801 To 24000
+bol = 24000
+Case 24001 To 25200
+bol = 25200
+Case 25201 To 26400
+bol = 26400
+Case 26401 To 27600
+bol = 27600
+Case 27600 To 28800
+bol = 28800
+Case 28801 To 30300
+bol = 30300
+Case 30301 To 31800
+bol = 31800
+Case 31801 To 33300
+bol = 33300
+Case 33301 To 34800
+bol = 34800
+Case 34801 To 36300
+bol = 36300
+Case 36301 To 38200
+bol = 38200
+Case 38201 To 40100
+bol = 40100
+Case Is >= 40101
+bol = 42000
+End Select
+End Function
+Function bonh(bol_vol)
+Select Case bol_vol
+Case Is <= 15840
+bonh = 15840
+Case 15841 To 16500
+bonh = 16500
+Case 16501 To 17400
+bonh = 17400
+Case 17401 To 18300
+bonh = 18300
+Case 18301 To 19200
+bonh = 19200
+Case 19201 To 20100
+bonh = 20100
+Case 20101 To 21000
+bonh = 21000
+Case 21001 To 21900
+bonh = 21900
+Case 21901 To 22800
+bonh = 22800
+Case 22801 To 24000
+bonh = 24000
+Case 24001 To 25200
+bonh = 250200
+Case 25201 To 26400
+bonh = 26400
+Case 26401 To 27600
+bonh = 27600
+Case 27601 To 28800
+bonh = 28800
+Case 28801 To 30300
+bonh = 30300
+Case 30301 To 31800
+bonh = 31800
+Case 31801 To 33300
+bonh = 33300
+Case 33301 To 34800
+bonh = 34800
+Case 34801 To 36300
+bonh = 36300
+Case 36301 To 38200
+bonh = 38200
+Case 38201 To 40100
+bonh = 40100
+Case 40101 To 42000
+bonh = 42000
+Case 42001 To 43900
+bonh = 43900
+Case 43901 To 45800
+bonh = 45800
+Case 45801 To 48200
+bonh = 48200
+Case 48201 To 50600
+bonh = 50600
+Case 50601 To 53000
+bonh = 53000
+Case 53001 To 55400
+bonh = 55400
+Case 55401 To 57800
+bonh = 57800
+Case 57801 To 60800
+bonh = 60800
+Case 60801 To 63800
+bonh = 63800
+Case 63801 To 66800
+bonh = 66800
+Case 66801 To 69800
+bonh = 69800
+Case 69801 To 72800
+bonh = 72800
+Case 72801 To 76500
+bonh = 76500
+Case 76501 To 80200
+bonh = 80200
+Case 80201 To 83900
+bonh = 83900
+Case Is >= 83901
+bonh = 87600
+End Select
+End Function
+
+Function Round(vol, bit)
+Round = Int(vol * 10 ^ bit + 0.5) / 10 ^ bit
+End Function

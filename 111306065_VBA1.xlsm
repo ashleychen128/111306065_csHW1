@@ -1,0 +1,17 @@
+Sub avg()
+For i = 3 To 22
+Sum = 0
+For j = 3 To 12
+Sum = Sum + Sheet1.Cells(i, j)
+Next j
+Sheet1.Cells(i, 13) = round(Sum / 10, 1)
+Sheet1.Cells(i, 14) = round(Sheet1.Cells(i, 13) * 0.5, 1)
+Sheet1.Cells(i, 16) = round(Sheet1.Cells(i, 15) * 0.2, 1)
+Sheet1.Cells(i, 18) = round(Sheet1.Cells(i, 17) * 0.3, 1)
+Sheet1.Cells(i, 19) = round(Sheet1.Cells(i, 14) + Sheet1.Cells(i, 16) + Sheet1.Cells(i, 18), 1)
+Next i
+End Sub
+
+Function round(vol, bit)
+round = Int(vol * 10 ^ bit + 0.5) / 10 ^ bit
+End Function
